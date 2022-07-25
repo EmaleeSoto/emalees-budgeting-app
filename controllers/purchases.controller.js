@@ -25,4 +25,11 @@ purchases.put("/:id", (req, res) => {
   res.send(purchasesArray[id]);
 });
 
+// DELETE
+purchases.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  const deletedItem = purchasesArray.splice(id, 1);
+  res.send(deletedItem);
+});
+
 module.exports = purchases;
