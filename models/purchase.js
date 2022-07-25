@@ -31,14 +31,14 @@ module.exports = [
     item_name: "Netflix",
     amount: 10,
     date: "April 6",
-    from: "netflix",
+    from: "Netflix",
     category: "Bills",
   },
   {
     item_name: "Internet",
     amount: 90,
     date: "April 8",
-    from: "employer",
+    from: "Employer",
     category: "Bills",
   },
 ];
