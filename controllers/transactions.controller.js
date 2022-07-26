@@ -1,35 +1,35 @@
 const express = require("express");
-const purchases = express.Router();
-const purchasesArray = require("../models/purchase.js");
+const transactions = express.Router();
+const transactionsArray = require("../models/transactions.js");
 
 // INDEX
-purchases.get("/", (req, res) => {
-  res.json(purchasesArray);
+transactions.get("/", (req, res) => {
+  res.json(transactionsArray);
 });
 
-purchases.get("/:id", (req, res) => {
+transactions.get("/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  res.json(purchasesArray[id]);
+  res.json(transactionsArray[id]);
 });
 
 // CREATE
-purchases.post("/", (req, res) => {
-  purchasesArray.push(req.body);
-  res.json(purchasesArray[purchasesArray.length - 1]);
+transactions.post("/", (req, res) => {
+  transactionsArray.push(req.body);
+  res.json(transactionsArray[transactionsArray.length - 1]);
 });
 
 // UPDATE
-purchases.put("/:id", (req, res) => {
+transactions.put("/:id", (req, res) => {
   const { id } = req.params;
-  purchasesArray[id] = req.body;
-  res.send(purchasesArray[id]);
+  transactionsArray[id] = req.body;
+  res.send(transactionsArray[id]);
 });
 
 // DELETE
-purchases.delete("/:id", (req, res) => {
+transactions.delete("/:id", (req, res) => {
   const { id } = req.params;
-  const deletedItem = purchasesArray.splice(id, 1);
+  const deletedItem = transactionsArray.splice(id, 1);
   res.send(deletedItem);
 });
 
-module.exports = purchases;
+module.exports = transactions;
