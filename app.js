@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-const purchasesController = require("./controllers/purchases.controller.js");
+const transactionsController = require("./controllers/transactions.controller.js");
 
 app.use(express.json()); // returns middleware that only parses JSON
 
@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.use("/purchases", purchasesController);
+app.use("/transactions", transactionsController);
 
 //Test
 
